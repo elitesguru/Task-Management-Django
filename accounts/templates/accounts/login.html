@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | SafetyPlus Consulting Limited</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+        }
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px; /* Adjusted maximum width */
+            margin: auto;
+            padding: 30px;
+        }
+        .login-form {
+            flex: 1;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+            max-width: 500px; /* Increased form width */
+            margin-right: 20px; /* Added margin between form and right section */
+        }
+        .form-control {
+            border-color: #ced4da;
+        }
+        .form-control:focus {
+            border-color: #80bdff; /* Blue focus border */
+            box-shadow: none;
+        }
+        .btn-login {
+            background-color: #007bff; /* Blue button */
+            border-color: #007bff;
+            color: #fff;
+        }
+        .btn-login:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #0056b3;
+        }
+        .rounded-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 20px auto; /* Center the image */
+            background-color: #ffc107; /* Golden yellow */
+            /* You can place your sample image URL here */
+            overflow: hidden; /* Ensure image stays within bounds */
+            position: relative; /* Enable positioning of child elements */
+        }
+        .rounded-img img {
+            width: 100%;
+            height: auto;
+        }
+        .right-section {
+            flex: 1;
+            background-color: black;
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .right-section h3,
+        .right-section p {
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflow text */
+            border-right: .15em solid orange; /* Animation border */
+            animation: typing 4s steps(40);
+            margin-bottom: 10px;
+        }
+        .right-section h3:after,
+        .right-section p:after {
+            content: ".."; /* Blinking cursor */
+            animation: blink 0.7s infinite; /* Blinking animation */
+        }
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .signup-link a {
+            color: #28a745; /* Green color for the link */
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="login-container">
+            <div class="login-form">
+                <div class="rounded-img">
+                    <img src="{% static 'accounts/contact_icon.png' %}" alt="Contact Icon">
+                </div>
+                <h2 class="text-center mb-4">Login | SafetyPlus Consulting Limited</h2>
+                <form method="post" >
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-lg btn-block btn-login">Login</button>
+                </form>
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="/accounts/signup/">Sign up here</a></p>
+                </div>
+            </div>
+            <div class="right-section">
+                <h3 class="animation">SafetyPlus ERP system</h3>
+                <p class="animation">welcome and feel free to work with us.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-v/KNp5SgdZGkdIECNq44ZNwl6RvyU/Ft+IEnQ9Vy+VoXxRfCwWo0XqsLe2ixqM6b" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy4CkR5Pbzxx7W+996c8Xvcq0h8liLh7Jr" crossorigin="anonymous"></script>
+</body>
+</html>
